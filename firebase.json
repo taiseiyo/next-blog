@@ -1,0 +1,28 @@
+{
+  "hosting": {
+    "public": "out",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      },
+      {
+        "source": "posts/award",
+        "destination": "posts/award/index.html"
+      },
+      {
+        "source": "posts/skill",
+        "destination": "posts/skill/index.html"
+      },
+      {
+        "source": "posts/hobby",
+        "destination": "posts/hobby/index.html"
+      }
+    ]
+  }
+}

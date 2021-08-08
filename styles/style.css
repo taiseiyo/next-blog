@@ -1,0 +1,236 @@
+@charset "UTF-8";
+html {
+  font-size: 100%;
+  height: 100%;
+}
+
+body {
+  color: #383e45;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+#main-visual {
+  display: flex;
+  justify-content: center;
+}
+#main-visual img {
+  width: 80vw;
+}
+
+li {
+  list-style: none;
+}
+
+.site-top {
+  width: 120px;
+  line-height: 1px;
+  padding: 10px 0;
+  font-size: 60px;
+}
+
+.section-title {
+  display: inline-block;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 60px;
+  border-bottom: solid 1px green;
+  color: blue;
+  position: relative;
+  left: -2px;
+}
+
+.content-title {
+  font-size: 1.7rem;
+  margin: 10px 0;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto 50px auto;
+  padding: 0 4%;
+  text-align: center;
+}
+
+/*-------------------
+ボタン
+--------------------*/
+.button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  background: #668ad8;
+  /*ボタン色*/
+  color: #FFF;
+  border-bottom: solid 4px #627295;
+  border-radius: 3px;
+}
+
+.button:hover {
+  /*ボタンを押したとき*/
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  /*下に動く*/
+  border-bottom: none;
+  /*線を消す*/
+}
+
+/*-------------------
+ヘッダー
+--------------------*/
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+}
+#header .ham, #header .ham_clicked {
+  position: fixed;
+  top: 11px;
+  right: 10%;
+  width: 60px;
+  height: 55px;
+  cursor: pointer;
+}
+#header .ham .ham_line, #header .ham_clicked .ham_line, #header .ham .ham_line3, #header .ham_clicked .ham_line3, #header .ham .ham_line2, #header .ham_clicked .ham_line2, #header .ham .ham_line1, #header .ham_clicked .ham_line1 {
+  position: relative;
+  display: block;
+  left: 10px;
+  width: 40px;
+  height: 3px;
+  background-color: blue;
+}
+#header .ham .ham_line1, #header .ham_clicked .ham_line1 {
+  top: 11px;
+}
+#header .ham .ham_line2, #header .ham_clicked .ham_line2 {
+  top: 22px;
+}
+#header .ham .ham_line3, #header .ham_clicked .ham_line3 {
+  top: 33px;
+}
+#header .ham_clicked .ham_line1 {
+  transform: rotate(45deg);
+  top: 23px;
+}
+#header .ham_clicked .ham_line2 {
+  width: 0px;
+}
+#header .ham_clicked .ham_line3 {
+  transform: rotate(-45deg);
+  top: 18px;
+}
+#header .menu {
+  position: fixed;
+  width: 160px;
+  height: 150px;
+  left: 110%;
+  transition: all 0.3s;
+  text-align: justify;
+}
+#header .menu_clicked {
+  left: 90%;
+  width: 100%;
+  color: blue;
+}
+@media (max-width: 414px) {
+  #header .menu_clicked {
+    left: 65%;
+  }
+}
+
+#header li a:hover {
+  opacity: 0.7;
+}
+
+/*------------------
+About
+-------------------*/
+#about .content {
+  display: block;
+}
+#about img {
+  margin-right: auto;
+  margin-left: auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+#about .text {
+  text-align: center;
+}
+
+/*-------------------
+News
+-------------------*/
+#news ul {
+  text-align: center;
+}
+#news ul li {
+  display: block;
+  margin-right: 35px;
+  margin-left: auto;
+}
+
+/*-------------------
+more
+--------------------*/
+.more_list {
+  font-size: 1.7rem;
+  align-items: center;
+  text-align: center;
+}
+.more_list li {
+  display: block;
+  margin-top: 50px;
+  margin-right: 35px;
+  margin-left: auto;
+}
+
+/*-------------------
+contact
+--------------------*/
+#contact {
+  font-size: 1.7rem;
+}
+
+/*-------------------
+background
+--------------------*/
+.bg {
+  animation: slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom: 0;
+  left: -50%;
+  opacity: 0.5;
+  position: fixed;
+  right: -50%;
+  top: 0;
+  z-index: -1;
+}
+
+.bg2 {
+  animation-direction: alternate-reverse;
+  animation-duration: 4s;
+}
+
+.bg3 {
+  animation-duration: 5s;
+}
+
+h1 {
+  font-family: monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(25%);
+  }
+}

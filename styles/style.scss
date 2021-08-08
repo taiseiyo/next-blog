@@ -1,0 +1,272 @@
+// sass style.scss:style.css --style expanded --watch &
+
+$body_font: 1.2rem;
+$content_font: 1.7rem;
+
+html{
+    font-size: 100%;
+    height:100%;
+}
+
+body{
+    color: #383e45;
+    font-size: $body_font;
+    margin:0;
+}
+
+a {
+  text-decoration: none;
+}
+#main-visual{
+    display: flex;
+    justify-content: center;
+    img{
+	width: 80vw;
+    }
+}
+li{
+  list-style: none;
+}
+
+.site-top {
+  width: 120px;
+  line-height: 1px;
+  padding: 10px 0;
+  font-size: 60px;
+}
+
+
+.section-title {
+  display: inline-block;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 60px;
+  border-bottom: solid 1px green;
+  color: blue;
+  position: relative;
+  left: -2px;
+}
+
+.content-title {
+  font-size: $content_font;
+  margin: 10px 0;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto 50px auto;
+  padding: 0 4%;
+  text-align: center;
+}
+
+#main-visual{
+    
+}
+
+/*-------------------
+ボタン
+--------------------*/
+
+.button{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #668ad8;/*ボタン色*/
+    color: #FFF;
+    border-bottom: solid 4px #627295;
+    border-radius: 3px;
+}
+.button:hover {
+    /*ボタンを押したとき*/
+    -webkit-transform: translateY(4px);
+    transform: translateY(4px);/*下に動く*/
+    border-bottom: none;/*線を消す*/
+}
+
+/*-------------------
+ヘッダー
+--------------------*/
+
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+
+  $sp: 414px;
+  @mixin sp {
+      @media (max-width: ($sp)) {
+	  @content;
+      }
+  }
+
+  .ham {
+      position: fixed;
+      top: 11px;
+      right: 10%;
+      width: 60px;
+      height: 55px;
+      cursor: pointer;
+      .ham_line {
+	  position: relative;
+	  display: block;
+	  left: 10px;
+	  width: 40px;
+	  height: 3px;
+	  background-color: blue;
+      }
+      .ham_line1 {
+	  @extend .ham_line;
+	  top: 11px;
+      }
+      .ham_line2 {
+	  @extend .ham_line;
+	  top: 22px;
+      }
+      .ham_line3 {
+	  @extend .ham_line;
+	  top: 33px;
+      }
+  }
+
+  .ham_clicked{
+      @extend .ham;
+      .ham_line1 {
+	  transform: rotate(45deg);
+	  top: 23px;
+      }
+      .ham_line2 {
+	  width: 0px;
+      }
+      .ham_line3 {
+	  transform: rotate(-45deg);
+	  top: 18px;
+      }
+  }
+
+
+  .menu {
+      position: fixed;
+      width: 160px;
+      height: 150px;
+      left: 110%;
+      transition: all 0.3s;
+      text-align: justify;
+  }
+  
+  .menu_clicked{
+      left: 90%;
+      width: 100%;
+      color: blue;
+  }
+  
+  @include sp{
+      .menu_clicked{
+	   left: 65%;
+      }
+  }
+}
+
+#header li a:hover {
+  opacity: 0.7;
+}
+
+/*------------------
+About
+-------------------*/
+
+
+#about{
+    .content {
+	display: block;
+    }
+    img {
+	margin-right: auto;
+	margin-left: auto;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+    }
+    .text {
+	text-align:center;
+
+    }
+}
+
+/*-------------------
+News
+-------------------*/
+
+#news {
+    ul{
+	text-align: center;
+	li {
+	    display: block;
+	    margin-right: 35px;
+	    margin-left: auto;
+	}	
+    }
+}
+
+/*-------------------
+more
+--------------------*/
+
+.more_list{
+    font-size: $content_font;
+    align-items: center;
+    text-align: center;
+    li {
+	display: block;
+	margin-top: 50px;
+	margin-right: 35px;
+	margin-left: auto;
+    }    
+}
+
+/*-------------------
+contact
+--------------------*/
+
+#contact{
+    font-size: $content_font;
+}
+
+
+/*-------------------
+background
+--------------------*/
+
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #6c3 50%, #09f 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+h1 {
+  font-family:monospace;
+}
+
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
