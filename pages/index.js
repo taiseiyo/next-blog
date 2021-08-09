@@ -4,9 +4,24 @@ import Image from 'next/image';
 import Script from 'next/script';
 import picCode from '../public/static/code.jpg';
 import picCastle from '../public/static/castle.jpg';
-
+import React, { useState, useRef } from 'react';
 
 export default function Home() {
+  let [flag, setFlag] = useState(false);
+  let hamRef = useRef(null);
+  let menuRef = useRef(null);
+  
+  let ham_action = () =>{
+    if(flag){
+      hamRef.current.className = "ham";
+      menuRef.current.className = "menu";
+      setFlag(false);
+    }else{
+      hamRef.current.className = "ham ham_clicked";
+      menuRef.current.className = "menu menu_clicked";
+      setFlag(true); 
+    }
+  };
   
     return (
       <>
@@ -15,14 +30,14 @@ export default function Home() {
           <Link href={"/"}><a className="site-top">Profile</a></Link>
           
 	<nav>
-	  <div className="ham" id="ham">
+	  <div className="ham" ref={hamRef} onClick={() => {ham_action();}}>
 	    <span className="ham_line ham_line1"></span>
 	    <span className="ham_line ham_line2"></span>
 	    <span className="ham_line ham_line3"></span>
 	  </div>
 	  
 	  <div className="menu_wrapper">
-	  <div className="menu"  id="menu_wrapper">
+	  <div className="menu" ref={menuRef}>
 	    <ul>
 	      <li><a href="#about">About</a></li>
 	      <li><a href="#news">News</a></li>
@@ -31,14 +46,6 @@ export default function Home() {
 	    </ul>
 	  </div>
 	  </div>
-          <Script> 
-            {`
-               document.getElementById('ham').addEventListener('click', function() { 
-                 document.getElementById('ham').classList.toggle('ham_clicked'); 
-                 document.getElementById('menu_wrapper').classList.toggle('menu_clicked'); 
-              }); 
-             `}             
-          </Script>
 	</nav>
 	</header>
 	
