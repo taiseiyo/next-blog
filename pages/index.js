@@ -7,137 +7,137 @@ import picCastle from '../public/static/castle.jpg';
 import React, { useState, useRef } from 'react';
 
 export default function Home() {
-  let [flag, setFlag] = useState(false);
-  let hamRef = useRef(null);
-  let menuRef = useRef(null);
-  
-  let ham_action = () =>{
-    if(flag){
-      hamRef.current.className = "ham";
-      menuRef.current.className = "menu";
-      setFlag(false);
-    }else{
-      hamRef.current.className = "ham ham_clicked";
-      menuRef.current.className = "menu menu_clicked";
-      setFlag(true); 
-    }
-  };
-  
+    let [flag, setFlag] = useState(false);
+    let hamRef = useRef(null);
+    let menuRef = useRef(null);
+    
+    let ham_action = () =>{
+        if(flag){
+            hamRef.current.className = "ham";
+            menuRef.current.className = "menu";
+            setFlag(false);
+        }else{
+            hamRef.current.className = "ham ham_clicked";
+            menuRef.current.className = "menu menu_clicked";
+            setFlag(true); 
+        }        
+    };
+    
     return (
-      <>
-	<header id="header" className="wrapper" style={{top:"35px",position:"relative"}}>
+        <>
+	  <header id="header" className="wrapper" style={{top:"35px",position:"relative"}}>
 
-          <Link href={"/"}><a className="site-top">Profile</a></Link>
-          
-	<nav>
-	  <div className="ham" ref={hamRef} onClick={() => {ham_action();}}>
-	    <span className="ham_line ham_line1"></span>
-	    <span className="ham_line ham_line2"></span>
-	    <span className="ham_line ham_line3"></span>
-	  </div>
+            <Link href={"/"}><a className="site-top">Profile</a></Link>
+            
+	    <nav>
+	      <div className="ham" ref={hamRef} onClick={() => {ham_action();}}>
+	        <span className="ham_line ham_line1"></span>
+	        <span className="ham_line ham_line2"></span>
+	        <span className="ham_line ham_line3"></span>
+	      </div>
+	      
+	      <div className="menu_wrapper">
+	        <div className="menu" ref={menuRef}>
+	          <ul>
+	            <li><a href="#about">About</a></li>
+	            <li><a href="#news">News</a></li>
+	            <li><a href="#more">More</a></li>
+	            <li><a href="#contact">Contact</a></li>
+	          </ul>
+	        </div>
+	      </div>
+	    </nav>
+	  </header>
 	  
-	  <div className="menu_wrapper">
-	  <div className="menu" ref={menuRef}>
-	    <ul>
-	      <li><a href="#about">About</a></li>
-	      <li><a href="#news">News</a></li>
-	      <li><a href="#more">More</a></li>
-	      <li><a href="#contact">Contact</a></li>
-	    </ul>
-	  </div>
-	  </div>
-	</nav>
-	</header>
-	
-        
-	<main>     
-	  <div className="bg"></div>
-	  <div className="bg bg2"></div>
-	  <div className="bg bg3"></div>
-	  <Image src={picCode}
-                 alt="Picture of the author"
-                 placeholder="blur"
-                 priority={true}
-                 loading={"eager"}
-                 />
           
-	  <section id="about" className="wrapper">
-	    <h2 className="section-title">About</h2>
-	    <div className="content">
+	  <main>     
+	    <div className="bg"></div>
+	    <div className="bg bg2"></div>
+	    <div className="bg bg3"></div>
+	    <Image src={picCode}
+                   alt="Picture of the author"
+                   placeholder="blur"
+                   priority={true}
+                   loading={"eager"}
+            />
+            
+	    <section id="about" className="wrapper">
+	      <h2 className="section-title">About</h2>
+	      <div className="content">
 
-              <Image src={picCastle}
-                     alt="Picture of the author"
-                     placeholder="blur"
-                     priority={true}
-                     loading={"eager"}                 
-                     />
+                <Image src={picCastle}
+                       alt="Picture of the author"
+                       placeholder="blur"
+                       priority={true}
+                       loading={"eager"}                 
+                />
 
-              
-	<p>
-	  関西学院大学を卒業後、関西学院大学院に入学
-	  国際学会などの学会で複数の論文発表を行う
-	</p>
-	    </div>
-	  </section>
-
-	  <section id="news" className="wrapper">
-	    <h2 className="section-title">News</h2>
-	    <ul>
-	      <li>
-	        <h3 className="content-title">論文投稿しました</h3>
-	        <p>globecom 2021 に論文を <br/>1 件投稿しました</p>
-	      </li>
-	      <li>
-	        <h3 className="content-title">富士通ハッカソンで最優秀賞受賞</h3>
-	        <p>2020 年の 12 月に行われた富士通「hack the future」で最優秀賞を受賞しました</p>
-	        
-	      </li>
-	      <li>
-	        <h3 className="content-title">Softbank AI 人材奨学金受賞</h3>
+                
 	        <p>
-	          Softbank から AI 人材育成奨学金を頂きました
+	          関西学院大学を卒業後、関西学院大学院に入学
+	          国際学会などの学会で複数の論文発表を行う
 	        </p>
-	      </li>
-	      
-	    </ul>
-	  </section>
-	  
-	  <section id="more" className="wrapper">
-	    <h2 className="section-title">More</h2>
-	    <ul className="more_list">
-	      <li>
-                <Link href={"/posts/award"}><a className="button">受賞歴</a></Link>
-	        
-	      </li>
-	      
-	      <li>
-                <Link href={"/posts/skill"}><a className="button">スキル一覧</a></Link>
-	        
-	      </li>
-	      
-	      <li>
-                <Link href={"/posts/hobby"}><a className="button">趣味</a></Link>
-	        
+	      </div>
+	    </section>
 
-	      </li>
-
-	    </ul>
+	    <section id="news" className="wrapper">
+	      <h2 className="section-title">News</h2>
+	      <ul>
+	        <li>
+	          <h3 className="content-title">論文投稿しました</h3>
+	          <p>globecom 2021 に論文を <br/>1 件投稿しました</p>
+	        </li>
+	        <li>
+	          <h3 className="content-title">富士通ハッカソンで最優秀賞受賞</h3>
+	          <p>2020 年の 12 月に行われた富士通「hack the future」で最優秀賞を受賞しました</p>
+	          
+	        </li>
+	        <li>
+	          <h3 className="content-title">Softbank AI 人材奨学金受賞</h3>
+	          <p>
+	            Softbank から AI 人材育成奨学金を頂きました
+	          </p>
+	        </li>
+	        
+	      </ul>
+	    </section>
 	    
-	  </section>
+	    <section id="more" className="wrapper">
+	      <h2 className="section-title">More</h2>
+	      <ul className="more_list">
+	        <li>
+                  <Link href={"/posts/award"}><a className="button">受賞歴</a></Link>
+	          
+	        </li>
+	        
+	        <li>
+                  <Link href={"/posts/skill"}><a className="button">スキル一覧</a></Link>
+	          
+	        </li>
+	        
+	        <li>
+                  <Link href={"/posts/hobby"}><a className="button">趣味</a></Link>
+	          
 
-	  <section id="contact" className="wrapper">
-	    <h2 className="section-title">Contact</h2><br/>
-	    <a href = "mailto: bell@taiseiyo.com" className="button">
-	      bell@taiseiyo.com
-	    </a>
+	        </li>
 
-	  </section>
-          
-          
-	</main>
-	
+	      </ul>
+	      
+	    </section>
 
-	<style jsx>{`
+	    <section id="contact" className="wrapper">
+	      <h2 className="section-title">Contact</h2><br/>
+	      <a href = "mailto: bell@taiseiyo.com" className="button">
+	        bell@taiseiyo.com
+	      </a>
+
+	    </section>
+            
+            
+	  </main>
+	  
+
+	  <style jsx>{`
             .container {
 		min-height: 100vh;
           padding: 0 0.5rem;
@@ -268,7 +268,7 @@ export default function Home() {
         }
 	`}</style>
 
-	<style jsx global>{`
+	  <style jsx global>{`
         html,
         body {
           padding: 0;
