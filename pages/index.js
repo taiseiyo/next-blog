@@ -2,15 +2,14 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
-import picCode from '../public/static/code.png';
-import picCastle from '../public/static/castle.png';
+import picCode from '../public/static/code.jpg';
+import picCastle from '../public/static/castle.jpg';
+
 
 export default function Home() {
-
   
     return (
       <>
-
 	<header id="header" className="wrapper" style={{top:"35px",position:"relative"}}>
 
           <Link href={"/"}><a className="site-top">Profile</a></Link>
@@ -32,7 +31,7 @@ export default function Home() {
 	    </ul>
 	  </div>
 	  </div>
-          <Script strategy="lazyOnload"> 
+          <Script> 
             {`
                document.getElementById('ham').addEventListener('click', function() { 
                  document.getElementById('ham').classList.toggle('ham_clicked'); 
@@ -50,7 +49,10 @@ export default function Home() {
 	  <div className="bg bg3"></div>
 	  <Image src={picCode}
                  alt="Picture of the author"
-                 placeholder="blur"/>
+                 placeholder="blur"
+                 priority={true}
+                 loading={"eager"}
+                 />
           
 	  <section id="about" className="wrapper">
 	    <h2 className="section-title">About</h2>
@@ -58,8 +60,11 @@ export default function Home() {
 
               <Image src={picCastle}
                      alt="Picture of the author"
-                     placeholder="blur" />
-              
+                     placeholder="blur"
+                     priority={true}
+                     loading={"eager"}                 
+                     />
+
               
 	<p>
 	  関西学院大学を卒業後、関西学院大学院に入学
