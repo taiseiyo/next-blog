@@ -2,8 +2,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import Script from 'next/script';
-import picCode from '../public/static/code.jpg';
-import picCastle from '../public/static/castle.jpg';
+import picCode from '../public/static/code.png';
+import picCastle from '../public/static/castle.png';
 
 export default function Home() {
 
@@ -48,13 +48,17 @@ export default function Home() {
 	  <div className="bg"></div>
 	  <div className="bg bg2"></div>
 	  <div className="bg bg3"></div>
-	  <Image src={picCode} alt="Picture of the author" />
+	  <Image src={picCode}
+                 alt="Picture of the author"
+                 placeholder="blur"/>
           
 	  <section id="about" className="wrapper">
 	    <h2 className="section-title">About</h2>
 	    <div className="content">
 
-              <Image src={picCastle} alt="Picture of the author" />
+              <Image src={picCastle}
+                     alt="Picture of the author"
+                     placeholder="blur" />
               
               
 	<p>
