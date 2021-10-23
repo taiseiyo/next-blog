@@ -1,16 +1,22 @@
-
-
 module.exports = {
   trailingSlash: true,
-  exportPathMap: function() {
+  exportPathMap: function () {
     return {
-      '/': { page: '/' }
+      "/": {page: "/"},
     };
   },
   images: {
-    domains: ['external-content.duckduckgo.com'],
-    loader:"imgix",
-    path:"",
+    domains: ["external-content.duckduckgo.com"],
+    loader: "imgix",
+    path: "",
   },
+
+  productBrowserSourceMaps: true,
 };
 
+// module.exports = withOptimizedImages({
+//   reactStrictMode: true,
+//   trailingSlash: true,
+//   handleImages: ["jpg"],
+//   path: "",
+// });

@@ -28,13 +28,33 @@ li{
   list-style: none;
 }
 
-.site-top {
-  width: 120px;
-  line-height: 1px;
-  padding: 10px 0;
-  font-size: 60px;
+.popout {
+      width: 190px;
+      line-height: 35px;
+      padding: 10px 0;
+      font-size: 60px;      
+      overflow: hidden;
+      display: flex;
+      visibility:hidden;
+      @for $i from 0 through 6{
+	  // 演算の際は#必要
+	  .animation#{$i+1} {
+	      position: relative;
+	      animation: popanime 1s $i*0.5s ease-out forwards;
+	  }
+    }    
 }
 
+@keyframes popanime {
+    0% {
+	visibility:visible;
+	bottom: -30px;
+}
+    100% {
+	visibility:visible;
+	bottom: 0px;
+    }
+}
 
 .section-title {
   display: inline-block;
@@ -59,9 +79,6 @@ li{
   text-align: center;
 }
 
-#main-visual{
-    
-}
 
 /*-------------------
 ボタン
@@ -92,17 +109,11 @@ li{
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-
-  $sp: 414px;
-  @mixin sp {
-      @media (max-width: ($sp)) {
-	  @content;
-      }
-  }
-
+  
+  
   .ham {
       position: fixed;
-      top: 11px;
+      top: 25px;
       right: 10%;
       width: 60px;
       height: 55px;
@@ -144,6 +155,27 @@ li{
       }
   }
 
+  $sp: 400px;
+  $sp_plus:480px;
+  $tb: 800px;
+
+  @mixin sp {
+      @media (max-width: ($sp)) {
+	  @content;
+      }
+  }
+
+  @mixin sp_plus {
+      @media (max-width: ($sp_plus)) {
+	  @content;
+      }
+  }
+
+  @mixin tb {
+      @media (max-width: ($tb)) {
+	  @content;
+      }
+  }
 
   .menu {
       position: fixed;
@@ -158,12 +190,16 @@ li{
       left: 90%;
       width: 100%;
       color: blue;
-  }
-  
-  @include sp{
-      .menu_clicked{
-	   left: 65%;
+      left: 90%;
+      @include tb{
+	  left: 78%;
       }
+      @include sp_plus{
+	   left: 67%;
+      }
+      @include sp{
+	   left: 65%;
+      }      
   }
 }
 
