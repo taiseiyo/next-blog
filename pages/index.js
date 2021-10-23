@@ -1,145 +1,171 @@
-import Head from 'next/head';
-import Link from 'next/link';
-import Image from 'next/image';
-import Script from 'next/script';
-import picCode from '../public/static/code.jpg';
-import picCastle from '../public/static/castle.jpg';
-import React, { useState, useRef } from 'react';
+import Head from "next/head";
+import Link from "next/link";
+import Image from "next/image";
+import Script from "next/script";
+import picCode from "../public/static/code.jpg";
+import picCastle from "../public/static/castle.jpg";
+import React, {useState, useRef} from "react";
 
 export default function Home() {
-    let [flag, setFlag] = useState(false);
-    let hamRef = useRef(null);
-    let menuRef = useRef(null);
-    
-    let ham_action = () =>{
-        if(flag){
-            hamRef.current.className = "ham";
-            menuRef.current.className = "menu";
-            setFlag(false);
-        }else{
-            hamRef.current.className = "ham ham_clicked";
-            menuRef.current.className = "menu menu_clicked";
-            setFlag(true); 
-        }        
-    };
-    
-    return (
-        <>
-	  <header id="header" className="wrapper" style={{top:"35px",position:"relative"}}>
+  let [flag, setFlag] = useState(false);
+  let hamRef = useRef(null);
+  let menuRef = useRef(null);
 
-            <Link href={"/"}><a className="site-top">Profile</a></Link>
-            
-	    <nav>
-	      <div className="ham" ref={hamRef} onClick={() => {ham_action();}}>
-	        <span className="ham_line ham_line1"></span>
-	        <span className="ham_line ham_line2"></span>
-	        <span className="ham_line ham_line3"></span>
-	      </div>
-	      
-	      <div className="menu_wrapper">
-	        <div className="menu" ref={menuRef}>
-	          <ul>
-	            <li><a href="#about">About</a></li>
-	            <li><a href="#news">News</a></li>
-	            <li><a href="#more">More</a></li>
-	            <li><a href="#contact">Contact</a></li>
-	          </ul>
-	        </div>
-	      </div>
-	    </nav>
-	  </header>
-	  
-          
-	  <main>     
-	    <div className="bg"></div>
-	    <div className="bg bg2"></div>
-	    <div className="bg bg3"></div>
-	    <Image src={picCode}
-                   alt="Picture of the author"
-                   placeholder="blur"
-                   priority={true}
-                   loading={"eager"}
-            />
-            
-	    <section id="about" className="wrapper">
-	      <h2 className="section-title">About</h2>
-	      <div className="content">
+  let ham_action = () => {
+    if (flag) {
+      hamRef.current.className = "ham";
+      menuRef.current.className = "menu";
+      setFlag(false);
+    } else {
+      hamRef.current.className = "ham ham_clicked";
+      menuRef.current.className = "menu menu_clicked";
+      setFlag(true);
+    }
+  };
 
-                <Image src={picCastle}
-                       alt="Picture of the author"
-                       placeholder="blur"
-                       priority={true}
-                       loading={"eager"}                 
-                />
+  return (
+    <>
+      <header
+        id="header"
+        className="wrapper"
+        style={{top: "20px", position: "relative", height: "65px"}}
+      >
+        <div className="popout">
+          <span className="animation1">P</span>
+          <span className="animation2">r</span>
+          <span className="animation3">o</span>
+          <span className="animation4">f</span>
+          <span className="animation5">i</span>
+          <span className="animation6">l</span>
+          <span className="animation7">e</span>
+        </div>
 
-                
-	        <p>
-	          関西学院大学を卒業後、関西学院大学院に入学
-	          国際学会などの学会で複数の論文発表を行う
-	        </p>
-	      </div>
-	    </section>
+        <nav>
+          <div
+            className="ham"
+            ref={hamRef}
+            onClick={() => {
+              ham_action();
+            }}
+          >
+            <span className="ham_line ham_line1"></span>
+            <span className="ham_line ham_line2"></span>
+            <span className="ham_line ham_line3"></span>
+          </div>
 
-	    <section id="news" className="wrapper">
-	      <h2 className="section-title">News</h2>
-	      <ul>
-	        <li>
-	          <h3 className="content-title">論文投稿しました</h3>
-	          <p>globecom 2021 に論文を <br/>1 件投稿しました</p>
-	        </li>
-	        <li>
-	          <h3 className="content-title">富士通ハッカソンで最優秀賞受賞</h3>
-	          <p>2020 年の 12 月に行われた富士通「hack the future」で最優秀賞を受賞しました</p>
-	          
-	        </li>
-	        <li>
-	          <h3 className="content-title">Softbank AI 人材奨学金受賞</h3>
-	          <p>
-	            Softbank から AI 人材育成奨学金を頂きました
-	          </p>
-	        </li>
-	        
-	      </ul>
-	    </section>
-	    
-	    <section id="more" className="wrapper">
-	      <h2 className="section-title">More</h2>
-	      <ul className="more_list">
-	        <li>
-                  <Link href={"/posts/award"}><a className="button">受賞歴</a></Link>
-	          
-	        </li>
-	        
-	        <li>
-                  <Link href={"/posts/skill"}><a className="button">スキル一覧</a></Link>
-	          
-	        </li>
-	        
-	        <li>
-                  <Link href={"/posts/hobby"}><a className="button">趣味</a></Link>
-	          
+          <div className="menu_wrapper">
+            <div className="menu" ref={menuRef}>
+              <ul>
+                <li>
+                  <a href="#about">About</a>
+                </li>
+                <li>
+                  <a href="#news">News</a>
+                </li>
+                <li>
+                  <a href="#more">More</a>
+                </li>
+                <li>
+                  <a href="#contact">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
 
-	        </li>
+      <main>
+        <div className="bg"></div>
+        <div className="bg bg2"></div>
+        <div className="bg bg3"></div>
+        {/* <img */}
+        {/*   src={picCode.src} */}
+        {/*   alt="Picture of the author" */}
+        {/*   /\* loading={"eager"} *\/ */}
+        {/*   width="300" */}
+        {/*   height="100" */}
+        {/* /> */}
 
-	      </ul>
-	      
-	    </section>
+        <section id="about" className="wrapper">
+          <h2 className="section-title">About</h2>
+          <div className="content">
+            {/* <img */}
+            {/*   src={picCastle.src} */}
+            {/*   alt="Picture of the author" */}
+            {/*   loading={"eager"} */}
+            {/* /> */}
 
-	    <section id="contact" className="wrapper">
-	      <h2 className="section-title">Contact</h2><br/>
-	      <a href = "mailto: bell@taiseiyo.com" className="button">
-	        bell@taiseiyo.com
-	      </a>
+            <p>
+              関西学院大学を卒業後、関西学院大学院に入学
+              国際学会などの学会で複数の論文発表を行う
+            </p>
+          </div>
+        </section>
 
-	    </section>
-            
-            
-	  </main>
-	  
+        <section id="news" className="wrapper">
+          <h2 className="section-title">News</h2>
+          <ul>
+            <li>
+              <h3 className="content-title">論文投稿しました</h3>
+              <p>
+                ICOIN 2022 に論文を <br />1 件投稿しました
+              </p>
+            </li>
+            <li>
+              <h3 className="content-title">富士通ハッカソンで最優秀賞受賞</h3>
+              <p>
+                2020 年の 12 月に行われた富士通「hack the
+                future」で最優秀賞を受賞しました
+              </p>
+            </li>
+            <li>
+              <h3 className="content-title">Softbank AI 人材奨学金受賞</h3>
+              <p>Softbank から AI 人材育成奨学金を頂きました</p>
+            </li>
+          </ul>
+        </section>
 
-	  <style jsx>{`
-            .container {
-		min-height: 100vh;
+        <section id="more" className="wrapper">
+          <h2 className="section-title">More</h2>
+          <ul className="more_list">
+            <li>
+              <Link href={"/posts/award"}>
+                <a className="button">受賞歴</a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href={"/posts/skill"}>
+                <a className="button">スキル一覧</a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href={"/posts/hobby"}>
+                <a className="button">趣味</a>
+              </Link>
+            </li>
+
+            <li>
+              <Link href="https://github.com/taiseiyo/">
+                <a className="button">GitHub</a>
+              </Link>
+            </li>
+          </ul>
+        </section>
+
+        <section id="contact" className="wrapper">
+          <h2 className="section-title">Contact</h2>
+          <br />
+          <a href="mailto: taiseiyo11@gmail.com" className="button">
+            taiseiyo11@gmail.com
+          </a>
+        </section>
+      </main>
+
+      <style jsx>{`
+        .container {
+          min-height: 100vh;
           padding: 0 0.5rem;
           display: flex;
           flex-direction: column;
@@ -266,9 +292,9 @@ export default function Home() {
             flex-direction: column;
           }
         }
-	`}</style>
+      `}</style>
 
-	  <style jsx global>{`
+      <style jsx global>{`
         html,
         body {
           padding: 0;
@@ -281,7 +307,7 @@ export default function Home() {
         * {
           box-sizing: border-box;
         }
-	`}</style>
-	</>
-    )
+      `}</style>
+    </>
+  );
 }
